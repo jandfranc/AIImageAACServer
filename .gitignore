@@ -1,0 +1,57 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+*.log.*
+pids/
+*.pid
+*.pid.lock
+
+# Runtime data
+tmp/
+temp/
+*.tmp
+
+# Environment files
+.env
+.env.test
+.env.production
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.bak
+*.orig
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Build and output directories
+build/
+dist/
+coverage/
+
+# Dependency directories
+/.pnp
+.pnp.js
+
+# Files from canvas builds
+canvas/build/
+canvas/*.node
+
+# Images (if dynamically generated and should not be tracked)
+images/
+
+# Miscellaneous
+*.log
+*.lock
+*.gz
+*.zip
