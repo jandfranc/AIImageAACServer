@@ -55,3 +55,4 @@ audio/
 *.lock
 *.gz
 *.zip
+*.pyc
