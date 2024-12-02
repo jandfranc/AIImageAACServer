@@ -16,14 +16,8 @@ from TTS.api import TTS
 # Get device
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-# List available 🐸TTS models
-print(TTS().list_models())
-
 # Init TTS
 tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
-# Text to speech to a file
-tts.tts_to_file(text="Hello world!", speaker_wav="my/cloning/audio.wav", language="en", file_path="output.wav")
-
 
 # Add CORS middleware
 
@@ -78,7 +72,7 @@ def generate_and_save_images(text: str):
         filename = f"image-{datetime.now().strftime('%Y%m%d%H%M%S')}-{uuid.uuid4()}.png"
         filepath = IMAGES_DIR / filename
         img.save(filepath)
-        image_paths.append(f"http://localhost:8000/images/{filename}")
+        image_paths.append(f"http://130.237.67.212:8000/images/{filename}")
     return image_paths
 
 
@@ -107,7 +101,7 @@ async def upload_audio(
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(audio.file, buffer)
 
-    audio_url = f"http://localhost:8000/audio/{filename}"
+    audio_url = f"http://130.237.67.212:8000/audio/{filename}"
     return {"audioUrl": audio_url}
 
 # POST route for TTS
@@ -141,7 +135,7 @@ async def text_to_speech(
         raise HTTPException(status_code=500, detail=f"TTS generation failed: {str(e)}")
 
     # Return the generated audio file URL
-    output_audio_url = f"http://localhost:8000/audio/{output_filename}"
+    output_audio_url = f"http://130.237.67.212:8000/audio/{output_filename}"
     return {"audioUrl": output_audio_url}
 
 
