@@ -49,7 +49,7 @@ canvas/*.node
 
 # Images (if dynamically generated and should not be tracked)
 images/
-
+audio/
 # Miscellaneous
 *.log
 *.lock
