@@ -124,9 +124,14 @@ async def text_to_speech(
     output_filename = f"tts-{datetime.now().strftime('%Y%m%d%H%M%S')}-{uuid.uuid4()}.wav"
     output_file_path = AUDIO_DIR / output_filename
 
+    def format_sentence(sentence):
+        if not sentence:
+            return ""
+        return sentence[0].upper() + sentence[1:].lower()
+
     try:
         tts.tts_to_file(
-            text=text,
+            text=format_sentence(text),
             speaker_wav=str(source_audio_path),
             language="en",  # Set appropriate language
             file_path=str(output_file_path),
